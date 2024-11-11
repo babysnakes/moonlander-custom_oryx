@@ -654,7 +654,8 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
   // Remove thumbs from achordion (seems that top thumb is already excluded)
-  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) == 5) { return true; }
+  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
+  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
   // Allow same side for ctrl+w, cmd+w, etc
   if (other_keycode == KC_W) { return true; }
 
@@ -663,7 +664,8 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch(tap_hold_keycode) {
-    case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+    case QK_LAYER_
+    AP ... QK_LAYER_TAP_MAX:
       // I don't need achordion for layer taps
       return 300;
   }
