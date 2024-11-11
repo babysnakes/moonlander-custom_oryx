@@ -657,22 +657,15 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
-  // alt+tab causes issues
-  switch(tap_hold_keycode) {
-    case MT(MOD_LGUI, KC_A):
-      if (other_record->event.key.row % (MATRIX_ROWS / 2) > 4) {
-        return true;
-      }
-      break;
-
-    case MT(MOD_RALT, KC_L):
-      if (other_record->event.key.row % (MATRIX_ROWS / 2) > 4) {
-        return true;
-      }
-      break;
-  }
   // Allow same side for ctrl+w, cmd+w, etc
   if (other_keycode == KC_W) { return true; }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
+
+// Override to overcome Alt+Tab delays (caused by achordion)
+const key_override_t alt_tab_override = ko_make_basic(MOD_MASK_SHIFT, KC_TAB, A(KC_TAB));
+
+const key_override_t *key_overrides[] = {
+  &alt_tab_override
+};
