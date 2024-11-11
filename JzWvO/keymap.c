@@ -664,8 +664,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 
 uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
   switch(tap_hold_keycode) {
-    case QK_LAYER_
-    AP ... QK_LAYER_TAP_MAX:
+    case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
       // I don't need achordion for layer taps
       return 300;
   }
