@@ -327,7 +327,7 @@ bool rgb_matrix_indicators_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
   // Custom Qmk - process achordion except for bottom two rows
-  if (record->event.key.row % (MATRIX_ROWS / 2) >= 4) {
+  if (record->event.key.row % (MATRIX_ROWS / 2) < 4) {
     if (!process_achordion(keycode, record)) {
       return false;
     }
