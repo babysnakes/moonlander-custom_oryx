@@ -326,8 +326,12 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-  // Custom Qmk
-  if (!process_achordion(keycode, record)) { return false; }
+  // Custom Qmk - process achordion except for bottom two rows
+  if (record->event.key.row % (MATRIX_ROWS / 2) >= 4) {
+    if (!process_achordion(keycode, record)) {
+      return false;
+    }
+  }
 
   switch (keycode) {
     case ST_MACRO_0:
@@ -653,8 +657,6 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      keyrecord_t* tap_hold_record,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
-  // Remove thumbs from achordion (seems that top thumb is already excluded)
-  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) == 5) { return true; }
   // Allow same side for ctrl+w, cmd+w, etc
   if (other_keycode == KC_W) { return true; }
 
