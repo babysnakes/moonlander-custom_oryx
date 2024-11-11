@@ -327,7 +327,7 @@ bool rgb_matrix_indicators_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
-  # Custom Qmk
+  // Custom Qmk
   if (!process_achordion(keycode, record)) { return false };
 
   switch (keycode) {
@@ -679,7 +679,7 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_5] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_5, dance_5_finished, dance_5_reset),
 };
 
-# Custom Qmk
+// Custom Qmk
 void matrix_scan_user(void) {
   achordion_task();
 }
