@@ -666,6 +666,9 @@ bool achordion_chord(uint16_t tap_hold_keycode,
 // Override to overcome Alt+Tab delays (caused by achordion)
 const key_override_t alt_tab_override = ko_make_basic(MOD_MASK_SHIFT, KC_TAB, A(KC_TAB));
 
-const key_override_t **key_overrides[] = {
-  &alt_tab_override
+const key_override_t *key_overrides[] = {
+  &alt_tab_override,
+  NULL // NULL terminate the array
 };
+
+const key_override_t **key_overrides = (const key_override_t **)key_overrides_list;
