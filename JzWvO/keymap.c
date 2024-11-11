@@ -689,7 +689,7 @@ bool achordion_chord(uint16_t tap_hold_keycode,
                      uint16_t other_keycode,
                      keyrecord_t* other_record) {
   // Override - Remove thumbs from achordion (seems that top thumb is already excluded)
-  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) == 0) { return true; }
+  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) == 5) { return true; }
 
   return achordion_opposite_hands(tap_hold_record, other_record);
 }
