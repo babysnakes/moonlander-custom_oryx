@@ -10,3 +10,8 @@ SPACE_CADET_ENABLE = no
 CAPS_WORD_ENABLE = yes
 DYNAMIC_TAPPING_TERM_ENABLE = yes
 LAYER_LOCK_ENABLE = yes
+
+
+
+# Custom Qmk
+SRC += features/achordion.c

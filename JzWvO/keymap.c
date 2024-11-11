@@ -3,6 +3,8 @@
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
+#include "features/achordion.h"
+
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
   ORYX_SL_TRIGG,
@@ -324,6 +326,10 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+
+  # Custom Qmk
+  if (!process_achordion(keycode, record)) { return false }
+
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
@@ -672,3 +678,8 @@ tap_dance_action_t tap_dance_actions[] = {
         [DANCE_4] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_4, dance_4_finished, dance_4_reset),
         [DANCE_5] = ACTION_TAP_DANCE_FN_ADVANCED(on_dance_5, dance_5_finished, dance_5_reset),
 };
+
+# Custom Qmk
+void matrix_scan_user(void) {
+  achordion_task();
+}
