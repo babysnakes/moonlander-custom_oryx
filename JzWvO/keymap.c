@@ -683,3 +683,13 @@ tap_dance_action_t tap_dance_actions[] = {
 void matrix_scan_user(void) {
   achordion_task();
 }
+
+bool achordion_chord(uint16_t tap_hold_keycode,
+                     keyrecord_t* tap_hold_record,
+                     uint16_t other_keycode,
+                     keyrecord_t* other_record) {
+  // Override - Remove thumbs from achordion (seems that top thumb is already excluded)
+  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) == 0) { return true; }
+
+  return achordion_opposite_hands(tap_hold_record, other_record);
+}
