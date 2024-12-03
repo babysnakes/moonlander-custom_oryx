@@ -7,8 +7,8 @@
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
 #define CAPS_LOCK_STATUS
-#define SERIAL_NUMBER "JzWvO/Q4vqg"
-#define LAYER_STATE_32BIT
+#define SERIAL_NUMBER "JzWvO/9mQzA"
+#define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define TAPPING_TERM_PER_KEY
