@@ -17,5 +17,5 @@
 // Custom Qmk
 
 // CAPS Word - enable without assigning secial key
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
-// #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+// #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
