@@ -732,12 +732,12 @@ tap_dance_action_t tap_dance_actions[] = {
 
 // Custom Qmk
 // Chordal Hold - Bottom row and thumbs should not be part of the chordal
-  const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = 
+  const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
     LAYOUT_moonlander(
-      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R', 
-      'L', 'L', 'L', 'L', 'L', 'L',           'R', 'R', 'R', 'R', 'R', 'R', 
-      '*', '*', '*', '*', '*', '*',           '*', '*', '*', '*', '*', '*', 
+      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R',
+      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R',
+      'L', 'L', 'L', 'L', 'L', 'L', 'L',      'R', 'R', 'R', 'R', 'R', 'R', 'R',
+      'L', 'L', 'L', 'L', 'L', 'L',           'R', 'R', 'R', 'R', 'R', 'R',
+      '*', '*', '*', '*', '*', '*',           '*', '*', '*', '*', '*', '*',
       '*', '*', '*',                          '*', '*', '*'
     );
