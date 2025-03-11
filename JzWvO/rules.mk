@@ -14,5 +14,4 @@ LAYER_LOCK_ENABLE = yes
 
 
 # Custom Qmk
-SRC += features/achordion.c
 CAPS_WORD_ENABLE = yes

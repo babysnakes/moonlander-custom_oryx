@@ -3,8 +3,6 @@
 #define MOON_LED_LEVEL LED_LEVEL
 #define ML_SAFE_RANGE SAFE_RANGE
 
-#include "features/achordion.h"
-
 enum custom_keycodes {
   RGB_SLD = ML_SAFE_RANGE,
   ORYX_SL_TRIGG,
@@ -335,9 +333,6 @@ bool rgb_matrix_indicators_user(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-
-  // Custom Qmk - process achordion
-  if (!process_achordion(keycode, record)) { return false; }
 
   switch (keycode) {
     case ST_MACRO_0:
@@ -736,28 +731,3 @@ tap_dance_action_t tap_dance_actions[] = {
 };
 
 // Custom Qmk
-void matrix_scan_user(void) {
-  achordion_task();
-}
-
-bool achordion_chord(uint16_t tap_hold_keycode,
-                     keyrecord_t* tap_hold_record,
-                     uint16_t other_keycode,
-                     keyrecord_t* other_record) {
-  // Remove thumbs from achordion (seems that top thumb is already excluded)
-  if (tap_hold_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
-  if (other_record->event.key.row % (MATRIX_ROWS / 2) >= 4) { return true; }
-  // Allow same side for ctrl+w, cmd+w, etc
-  if (other_keycode == KC_W) { return true; }
-
-  return achordion_opposite_hands(tap_hold_record, other_record);
-}
-
-uint16_t achordion_timeout(uint16_t tap_hold_keycode) {
-  switch(tap_hold_keycode) {
-    case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-      // I don't need achordion for layer taps
-      return 300;
-  }
-  return 1000;
-}
