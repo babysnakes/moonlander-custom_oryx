@@ -22,6 +22,15 @@ on:
           - planck_ez
           - planck_ez/glow
         default: moonlander
+  workflow_call:
+    inputs:
+      layout_id:
+        type: string
+        description: "Layout id available in URL https://configure.zsa.io/voyager/layouts/[ID_IS_HERE]/latest"
+        required: true
+      layout_geometry:
+        description: "Keyboard type"
+        type: string
 
 permissions:
   contents: write
