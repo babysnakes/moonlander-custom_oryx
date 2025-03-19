@@ -1,6 +1,6 @@
 name: "My Voyager: Backup"
 on:
-    workflow-dispatch
+    workflow_dispatch
 
 permissions:
   contents: write
