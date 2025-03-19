@@ -1,0 +1,13 @@
+name: "My Voyager: Backup"
+on:
+    workflow-dispatch
+
+permissions:
+  contents: write
+
+jobs:
+    build-firmware:
+        uses: ./.github/workflows/fetch-and-build-layout.yml
+        with:
+            layout_id: ZZwzo
+            layout_geometry: voyager
