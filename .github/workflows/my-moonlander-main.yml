@@ -1,0 +1,13 @@
+name: "My Moonlander: Main"
+on:
+    workflow_dispatch
+
+permissions:
+  contents: write
+
+jobs:
+    build-firmware:
+        uses: ./.github/workflows/fetch-and-build-layout.yml
+        with:
+            layout_id: JzWvO
+            layout_geometry: moonlander
