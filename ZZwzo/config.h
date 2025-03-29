@@ -1,10 +1,6 @@
-/*
-  Set any config.h overrides for your specific keymap here.
-  See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
-*/
-
+#define CHORDAL_HOLD
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "ZZwzo/pjan9W"
+#define SERIAL_NUMBER "ZZwzo/DzZKvE"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 3
 
