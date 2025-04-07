@@ -40,3 +40,8 @@
 #undef ENABLE_RGB_MATRIX_MULTISPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_SPLASH
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+
+// CustomQmk
+
+// Combos only from layer 0 (Might be later replaced with DEFAULT_REF_LAYER)
+#define COMBO_ONLY_FROM_LAYER 0
