@@ -1,6 +1,6 @@
 #define CHORDAL_HOLD
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "ZZwzo/DzZKvE"
+#define SERIAL_NUMBER "ZZwzo/ea9yyW"
 #define LAYER_STATE_16BIT
 #define COMBO_COUNT 3
 
