@@ -16,3 +16,6 @@
 // CAPS Word - enable without assigning secial key
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
+
+// Combos only from layer 0 (Might be later replaced with DEFAULT_REF_LAYER)
+#define COMBO_ONLY_FROM_LAYER 0
