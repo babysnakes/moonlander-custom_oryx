@@ -36,9 +36,9 @@ enum tap_dance_codes {
   DANCE_3,
 };
 
-#define DUAL_FUNC_0 LT(25, KC_F14)
-#define DUAL_FUNC_1 LT(25, KC_D)
-#define DUAL_FUNC_2 LT(26, KC_F9)
+#define DUAL_FUNC_0 LT(18, KC_3)
+#define DUAL_FUNC_1 LT(32, KC_8)
+#define DUAL_FUNC_2 LT(31, KC_F13)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -375,7 +375,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
-      SEND_STRING(SS_LALT(SS_TAP(X_SPACE))SS_DELAY(100)  SS_LSFT(SS_TAP(X_COMMA))SS_DELAY(100)  SS_TAP(X_SPACE));
+      SEND_STRING(SS_LALT(SS_LGUI(SS_TAP(X_SPACE)))SS_DELAY(150)  SS_LSFT(SS_TAP(X_COMMA)));
     }
     break;
     case ST_MACRO_8:
