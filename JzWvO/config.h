@@ -3,9 +3,8 @@
 #define PERMISSIVE_HOLD
 
 #define USB_SUSPEND_WAKEUP_DELAY 0
-#define SERIAL_NUMBER "JzWvO/PBD3jm"
-#define LAYER_STATE_32BIT
-#define COMBO_COUNT 1
+#define SERIAL_NUMBER "JzWvO/Lv53L0"
+#define LAYER_STATE_16BIT
 #define HCS(report) host_consumer_send(record->event.pressed ? report : 0); return false
 
 #define TAPPING_TERM_PER_KEY
