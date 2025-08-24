@@ -35,10 +35,10 @@ enum tap_dance_codes {
   DANCE_2,
 };
 
-#define DUAL_FUNC_0 LT(14, KC_F)
-#define DUAL_FUNC_1 LT(4, KC_N)
-#define DUAL_FUNC_2 LT(5, KC_8)
-#define DUAL_FUNC_3 LT(5, KC_F11)
+#define DUAL_FUNC_0 LT(14, KC_Q)
+#define DUAL_FUNC_1 LT(14, KC_F17)
+#define DUAL_FUNC_2 LT(11, KC_V)
+#define DUAL_FUNC_3 LT(5, KC_N)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -100,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [7] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, RALT(RSFT(KC_Q)),RALT(KC_9),     RALT(KC_8),     RALT(KC_7),     RALT(KC_R),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(KC_D),     RALT(KC_A),     RALT(KC_UP),    RALT(KC_S),     RALT(LSFT(KC_P)),KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_6),     RALT(KC_5),     DUAL_FUNC_2,    RALT(KC_G),     KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, DUAL_FUNC_3,    RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RCTL(RSFT(KC_G)),
+    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_6),     RALT(KC_5),     DUAL_FUNC_2,    RALT(KC_G),     KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, DUAL_FUNC_3,    RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RALT(RSFT(KC_G)),
     KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_3),     RALT(KC_2),     RALT(KC_1),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(RSFT(KC_SPACE)),RALT(KC_T),     RALT(KC_M),     RALT(KC_F),     KC_TRANSPARENT, 
     QK_LLCK,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_SPACE)
@@ -211,6 +211,10 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term + 40;
         case KC_0:
             return g_tapping_term + 100;
+        case DUAL_FUNC_2:
+            return g_tapping_term + 50;
+        case DUAL_FUNC_3:
+            return g_tapping_term + 50;
         default:
             return g_tapping_term;
     }
