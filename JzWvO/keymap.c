@@ -37,10 +37,10 @@ enum tap_dance_codes {
   DANCE_4,
 };
 
-#define DUAL_FUNC_0 LT(10, KC_A)
-#define DUAL_FUNC_1 LT(2, KC_F19)
-#define DUAL_FUNC_2 LT(6, KC_F13)
-#define DUAL_FUNC_3 LT(7, KC_J)
+#define DUAL_FUNC_0 LT(9, KC_C)
+#define DUAL_FUNC_1 LT(3, KC_L)
+#define DUAL_FUNC_2 LT(1, KC_L)
+#define DUAL_FUNC_3 LT(9, KC_F)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -100,10 +100,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_SPACE,       KC_TAB,         KC_ESCAPE,                      KC_LEFT_GUI,    KC_BSPC,        KC_ENTER
   ),
   [7] = LAYOUT_moonlander(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, RALT(RSFT(KC_Q)),RALT(KC_9),     RALT(KC_8),     RALT(KC_7),     RALT(KC_R),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(KC_D),     RALT(KC_A),     RALT(KC_UP),    RALT(KC_S),     RALT(LSFT(KC_P)),KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_6),     RALT(KC_5),     DUAL_FUNC_2,    RALT(KC_G),     KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_TRANSPARENT, DUAL_FUNC_3,    RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RALT(RSFT(KC_G)),
-    KC_TRANSPARENT, LGUI(KC_DOWN),  RALT(KC_3),     RALT(KC_2),     RALT(KC_1),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(RSFT(KC_SPACE)),RALT(KC_T),     RALT(KC_M),     RALT(KC_F),     KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_9),     RALT(KC_8),     RALT(KC_7),     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_TRANSPARENT, RALT(RSFT(KC_Q)),RALT(KC_6),     RALT(KC_5),     RALT(KC_4),     RALT(KC_R),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(KC_D),     RALT(KC_A),     RALT(KC_UP),    RALT(KC_S),     RALT(LSFT(KC_P)),KC_TRANSPARENT, 
+    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_3),     RALT(KC_2),     DUAL_FUNC_2,    KC_TRANSPARENT, RALT(KC_G),                                                                     KC_TRANSPARENT, KC_TRANSPARENT, DUAL_FUNC_3,    RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RALT(RSFT(KC_G)),
+    KC_TRANSPARENT, KC_TRANSPARENT, LGUI(KC_DOWN),  RALT(KC_M),     RALT(KC_T),     KC_TRANSPARENT,                                 KC_TRANSPARENT, RALT(RSFT(KC_SPACE)),KC_TRANSPARENT, RALT(KC_F),     KC_TRANSPARENT, KC_TRANSPARENT, 
     QK_LLCK,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_SPACE)
   ),
@@ -215,6 +215,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term + 40;
         case KC_0:
             return g_tapping_term + 100;
+        case RALT(KC_4):
+            return g_tapping_term + 50;
         case DUAL_FUNC_2:
             return g_tapping_term + 50;
         case DUAL_FUNC_3:
@@ -252,7 +254,7 @@ const uint8_t PROGMEM ledmap[][RGB_MATRIX_LED_COUNT][3] = {
 
     [6] = { {41,92,255}, {41,92,255}, {144,223,234}, {144,223,234}, {0,245,245}, {41,92,255}, {41,92,255}, {31,223,255}, {41,92,255}, {41,92,255}, {41,92,255}, {31,223,255}, {31,223,255}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {31,223,255}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {144,223,234}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {74,237,134}, {74,237,134}, {41,92,255}, {132,92,255}, {159,238,135}, {41,218,204}, {0,245,245}, {31,223,255}, {31,223,255}, {215,218,204}, {74,237,134}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {74,237,134}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {144,223,234}, {41,92,255}, {41,92,255}, {41,92,255}, {144,223,234}, {144,223,234}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {144,223,234}, {41,92,255}, {41,92,255}, {41,92,255}, {41,92,255}, {31,223,255}, {31,223,255}, {215,218,204}, {41,92,255}, {41,92,255}, {144,223,234}, {41,218,204} },
 
-    [7] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,0,0}, {0,255,252}, {0,0,0}, {144,223,234}, {0,0,0}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {0,0,0}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {0,0,0}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {0,0,0}, {0,0,0}, {201,119,247}, {201,119,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,119,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,252}, {0,0,0}, {134,255,252}, {0,0,0}, {0,0,0}, {201,119,247}, {36,143,237}, {134,255,252}, {0,0,0}, {0,0,0}, {36,143,237}, {36,143,237}, {134,255,252}, {0,0,0}, {0,0,0}, {201,119,247}, {36,143,237}, {134,255,252}, {0,0,0}, {0,0,0}, {24,143,237}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {134,255,252}, {0,0,0}, {0,0,0}, {0,0,0} },
+    [7] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,0,0}, {0,255,252}, {0,0,0}, {0,0,0}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {144,223,234}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {134,255,252}, {0,0,0}, {90,255,252}, {90,255,252}, {90,255,252}, {134,255,252}, {0,0,0}, {0,0,0}, {201,119,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,119,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,119,247}, {0,0,0}, {0,0,0}, {0,0,0}, {0,255,252}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {201,119,247}, {36,143,237}, {134,255,252}, {0,0,0}, {0,0,0}, {36,143,237}, {36,143,237}, {0,0,0}, {0,0,0}, {0,0,0}, {201,119,247}, {36,143,237}, {134,255,252}, {0,0,0}, {0,0,0}, {24,143,237}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {134,255,252}, {0,0,0}, {0,0,0}, {0,0,0} },
 
     [8] = { {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,245,245}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {144,223,234}, {144,223,234}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {31,223,255}, {0,245,245}, {0,82,231}, {0,0,0}, {0,0,0}, {0,245,245}, {0,245,245}, {144,223,234}, {0,0,0}, {0,0,0}, {31,223,255}, {0,245,245}, {0,82,231}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0} },
 
@@ -647,9 +649,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DUAL_FUNC_2:
       if (record->tap.count > 0) {
         if (record->event.pressed) {
-          register_code16(RALT(KC_4));
+          register_code16(RALT(KC_1));
         } else {
-          unregister_code16(RALT(KC_4));
+          unregister_code16(RALT(KC_1));
         }
       } else {
         if (record->event.pressed) {
