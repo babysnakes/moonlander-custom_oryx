@@ -27,8 +27,9 @@ enum tap_dance_codes {
   DANCE_1,
 };
 
-#define DUAL_FUNC_0 LT(5, KC_F6)
-#define DUAL_FUNC_1 LT(2, KC_F10)
+#define DUAL_FUNC_0 LT(8, KC_V)
+#define DUAL_FUNC_1 LT(3, KC_N)
+#define DUAL_FUNC_2 LT(5, KC_S)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -76,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [6] = LAYOUT_voyager(
     KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_9),     RALT(KC_8),     RALT(KC_7),     KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, RALT(LSFT(KC_Q)),RALT(KC_6),     RALT(KC_5),     RALT(KC_4),     RALT(KC_R),                                     KC_TRANSPARENT, RALT(KC_A),     RALT(KC_UP),    RALT(KC_S),     RALT(LSFT(KC_P)),KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_3),     RALT(KC_2),     DUAL_FUNC_1,    RALT(KC_G),                                     KC_TRANSPARENT, RALT(KC_LEFT),  RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RALT(LSFT(KC_G)),
+    KC_TRANSPARENT, KC_TRANSPARENT, RALT(KC_3),     RALT(KC_2),     DUAL_FUNC_1,    RALT(KC_G),                                     KC_TRANSPARENT, DUAL_FUNC_2,    RALT(KC_DOWN),  RALT(KC_RIGHT), KC_TRANSPARENT, RALT(LSFT(KC_G)),
     QK_LLCK,        KC_TRANSPARENT, RALT(KC_F),     RALT(KC_M),     RALT(KC_T),     RALT(LSFT(KC_SPACE)),                                KC_TRANSPARENT, RALT(KC_D),     LGUI(KC_DOWN),  KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
                                                     RALT(KC_SPACE), KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT
   ),
@@ -149,6 +150,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LGUI, KC_0):
             return g_tapping_term + 20;
         case DUAL_FUNC_1:
+            return g_tapping_term + 50;
+        case DUAL_FUNC_2:
             return g_tapping_term + 50;
         default:
             return g_tapping_term;
@@ -422,6 +425,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           register_code16(KC_LEFT_SHIFT);
         } else {
           unregister_code16(KC_LEFT_SHIFT);
+        }  
+      }  
+      return false;
+    case DUAL_FUNC_2:
+      if (record->tap.count > 0) {
+        if (record->event.pressed) {
+          register_code16(RALT(KC_LEFT));
+        } else {
+          unregister_code16(RALT(KC_LEFT));
+        }
+      } else {
+        if (record->event.pressed) {
+          register_code16(KC_RIGHT_SHIFT);
+        } else {
+          unregister_code16(KC_RIGHT_SHIFT);
         }  
       }  
       return false;
