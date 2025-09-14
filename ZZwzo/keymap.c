@@ -122,7 +122,7 @@ const uint16_t PROGMEM combo2[] = { KC_C, KC_V, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(combo0, TT(9)),
     COMBO(combo1, TG(8)),
-    COMBO(combo2, TT(7)),
+    COMBO(combo2, MO(7)),
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
