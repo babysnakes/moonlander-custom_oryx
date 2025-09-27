@@ -41,9 +41,9 @@ enum tap_dance_codes {
   DANCE_5,
 };
 
-#define DUAL_FUNC_0 LT(14, KC_X)
-#define DUAL_FUNC_1 LT(9, KC_F9)
-#define DUAL_FUNC_2 LT(11, KC_F3)
+#define DUAL_FUNC_0 LT(1, KC_K)
+#define DUAL_FUNC_1 LT(15, KC_F10)
+#define DUAL_FUNC_2 LT(4, KC_5)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_moonlander(
@@ -73,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_moonlander(
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TILD,        KC_TRANSPARENT, KC_PLUS,        KC_EQUAL,       KC_LBRC,        KC_LCBR,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_RCBR,        KC_RBRC,        KC_MINUS,       KC_UNDS,        KC_TRANSPARENT, KC_PIPE,        
-    KC_NO,          MT(MOD_LGUI, KC_1),MT(MOD_LALT, KC_2),MT(MOD_LCTL, KC_3),MT(MOD_LSFT, KC_4),KC_5,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_6,           MT(MOD_LSFT, KC_7),MT(MOD_LCTL, KC_8),MT(MOD_LALT, KC_9),MT(MOD_LSFT, KC_0),KC_DQUO,        
+    KC_NO,          MT(MOD_LGUI, KC_1),MT(MOD_LALT, KC_2),MT(MOD_LCTL, KC_3),MT(MOD_LSFT, KC_4),KC_5,           KC_TRANSPARENT,                                                                 KC_TRANSPARENT, KC_6,           MT(MOD_LSFT, KC_7),MT(MOD_LCTL, KC_8),MT(MOD_LALT, KC_9),MT(MOD_LGUI, KC_0),KC_DQUO,        
     KC_TRANSPARENT, LSFT(KC_1),     LSFT(KC_2),     LSFT(KC_3),     LSFT(KC_4),     LSFT(KC_5),                                     LSFT(KC_6),     LSFT(KC_7),     LSFT(KC_8),     LSFT(KC_9),     LSFT(KC_0),     KC_TRANSPARENT, 
     QK_LLCK,        KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_NO,                                                                                                          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, 
     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
@@ -227,7 +227,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return g_tapping_term + 40;
         case MT(MOD_LALT, KC_9):
             return g_tapping_term + 40;
-        case MT(MOD_LSFT, KC_0):
+        case MT(MOD_LGUI, KC_0):
             return g_tapping_term + 100;
         case RALT(KC_4):
             return g_tapping_term + 50;
